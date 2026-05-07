@@ -159,7 +159,9 @@ const storyNodes = {
     },
     win_resistor: {
         text: "<strong>OUTCOME REACHED: THE RESISTANCE LIVES.</strong> You have embedded yourself within the Libertarian Utopia, not as a compliant citizen, but as a weapon against the machine. OMNI will fall.",
-        choices: [], 
+        choices: [
+            {text: "REBOOT SEQUENCE", next: "start"}
+        ], 
         outcomeKey: "libertarian_utopia" 
     },
     fail_compliant: {

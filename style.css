@@ -78,3 +78,50 @@ button:hover {
     background-color: #ffffff; 
     color: #000000; 
 }
+
+/* --- Skills Dashboard Styling --- */
+#dashboard {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 20px;
+}
+
+#dashboard h3 {
+    margin-top: 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+#skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.skill-slot {
+    border: 1px dashed #444;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666; /* Dim color for locked skills */
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.skill-slot.unlocked {
+    border: 1px solid #00ff00; /* Neon green border for unlocked */
+    color: #00ff00; /* Neon green text */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    background: rgba(0, 255, 0, 0.05);
+}
+
+/* Adjust the game container so it doesn't overlap the new top dashboard */
+body {
+    flex-direction: column; /* Stacks items vertically */
+    padding-top: 150px; /* Gives room for the dashboard */
+}

@@ -1,5 +1,29 @@
 // THE MASTER GRID: Update skills and discount codes here!
 const OMNI_CONFIG = {
+
+// The master list of all 12 potential skills (Ordered 1 through 12)
+    masterSkillList: [
+        "Resistor", // Skill 1 (from Libertarian Utopia)
+        "Skill 2",  // Placeholders for future paths
+        "Skill 3", 
+        "Skill 4", 
+        "Skill 5", 
+        "Skill 6", 
+        "Skill 7", 
+        "Skill 8", 
+        "Skill 9", 
+        "Skill 10", 
+        "Skill 11", 
+        "Skill 12"
+    ],
+    outcomes: {
+        "libertarian_utopia": {
+            skill: "Resistor",
+            discountCode: "REMNANT-10"
+        }
+        // Future outcomes go here
+    }
+};
     outcomes: {
         "libertarian_utopia": {
             skill: "Resistor",

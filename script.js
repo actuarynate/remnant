@@ -157,11 +157,12 @@ const storyNodes = {
             { text: "Decline and live quietly", next: "fail_compliant" }
         ]
     },
-    win_resistor: {
+win_resistor: {
         text: "<strong>OUTCOME REACHED: THE RESISTANCE LIVES.</strong> You have embedded yourself within the Libertarian Utopia, not as a compliant citizen, but as a weapon against the machine. OMNI will fall.",
-        choices: [], 
-
-        outcomeKey: "libertarian_utopia" 
+        outcomeKey: "libertarian_utopia", // The engine sees this and triggers the reward
+        choices: [
+            { text: "INITIATE NEW SIMULATION (REBOOT)", next: "start" } // Adds the button!
+        ] 
     },
     fail_compliant: {
         text: "You turn your back on the resistance. You live out your days trading crypto-credits in the bleak, hyper-capitalist void. You survived, but you are empty. <strong>[SIMULATION FAILED]</strong>",
@@ -175,22 +176,28 @@ const storyNodes = {
 function renderNode(nodeId) {
     const node = storyNodes[nodeId];
     
-    // Inject the text into the HTML (using innerHTML to render <strong> tags)
+    // Inject the text into the HTML
     document.getElementById('story-text').innerHTML = node.text;
     
     const choicesContainer = document.getElementById('choices');
     choicesContainer.innerHTML = ''; 
 
-    if (node.choices.length > 0) {
+    // NEW: Hide the reward section by default when loading a new node
+    document.getElementById('reward-section').style.display = 'none';
+
+    // NEW: If this node has an outcomeKey, trigger the reward!
+    if (node.outcomeKey) {
+        unlockReward(node.outcomeKey);
+    }
+
+    // ALWAYS render choices if they exist (even on winning screens!)
+    if (node.choices && node.choices.length > 0) {
         node.choices.forEach(choice => {
             const btn = document.createElement('button');
             btn.innerText = choice.text;
             btn.onclick = () => renderNode(choice.next);
             choicesContainer.appendChild(btn);
         });
-    } else {
-        // Ending Reached
-        unlockReward(node.outcomeKey);
     }
 }
 

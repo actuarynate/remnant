@@ -162,6 +162,7 @@ const storyNodes = {
         choices: [
             {text: "REBOOT SEQUENCE", next: "start"}
         ], 
+        unlockReward(node.outcomeKey),
         outcomeKey: "libertarian_utopia" 
     },
     fail_compliant: {

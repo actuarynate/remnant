@@ -225,4 +225,5 @@ function unlockReward(outcomeKey) {
 }
 
 // Boot up the game when the script loads
+renderDashboard();
 renderNode('start');

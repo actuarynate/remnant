@@ -9,6 +9,61 @@ const OMNI_CONFIG = {
     }
 };
 
+function renderDashboard() {
+    // 1. Get what the player has already unlocked from memory
+    const unlockedSkills = JSON.parse(localStorage.getItem('omniSkills')) || [];
+    
+    const gridContainer = document.getElementById('skills-grid');
+    gridContainer.innerHTML = ''; // Clear it out
+
+    // 2. Loop through all 12 skills in the Master List
+    OMNI_CONFIG.masterSkillList.forEach((masterSkill, index) => {
+        const slot = document.createElement('div');
+        slot.classList.add('skill-slot');
+        
+        const skillNumber = index + 1; // 1 through 12
+
+        // 3. Check if the player has this skill
+        if (unlockedSkills.includes(masterSkill)) {
+            slot.classList.add('unlocked');
+            slot.innerText = `[ ${masterSkill} ]`;
+        } else {
+            slot.innerText = `Acquire Skill ${skillNumber}`;
+        }
+
+        gridContainer.appendChild(slot);
+    });
+}
+
+// --- UPDATED FUNCTION: unlockReward ---
+function unlockReward(outcomeKey) {
+    const rewardData = OMNI_CONFIG.outcomes[outcomeKey];
+    const skillName = rewardData.skill;
+    const merchCode = rewardData.discountCode;
+
+    let unlockedSkills = JSON.parse(localStorage.getItem('omniSkills')) || [];
+    if (!unlockedSkills.includes(skillName)) {
+        unlockedSkills.push(skillName);
+        localStorage.setItem('omniSkills', JSON.stringify(unlockedSkills));
+        
+        // RE-RENDER THE DASHBOARD to show the newly acquired skill!
+        renderDashboard(); 
+    }
+
+    document.getElementById('reward-section').style.display = 'block';
+    document.getElementById('skill-name').innerText = skillName;
+    document.getElementById('merch-code-display').innerText = merchCode; 
+
+    const tweetText = encodeURIComponent(`I survived the OMNI A.I. singularity and joined THE REMNANT. I earned the ${skillName} skill. Can you survive Life 3.0?`);
+    const gameUrl = encodeURIComponent(`https://yourusername.github.io/omni-game/`); 
+    document.getElementById('share-link').href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${gameUrl}&hashtags=Project86,OMNI`;
+}
+
+// ... Keep your existing `storyNodes` and `renderNode` functions here ...
+
+// Boot up the game when the script loads
+renderDashboard(); // Generate the dashboard first
+
 // THE STORY LOGIC MAP
 const storyNodes = {
     start: {

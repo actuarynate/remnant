@@ -24,14 +24,7 @@ const OMNI_CONFIG = {
         // Future outcomes go here
     }
 };
-    outcomes: {
-        "libertarian_utopia": {
-            skill: "Resistor",
-            discountCode: "REMNANT-10"
-        }
-        // Future outcomes go here
-    }
-};
+  
 
 function renderDashboard() {
     // 1. Get what the player has already unlocked from memory

@@ -12,7 +12,7 @@ const OMNI_CONFIG = {
 // THE STORY LOGIC MAP
 const storyNodes = {
     start: {
-        text: "Welcome to the <strong>LIBERTARIAN UTOPIA</strong> free-zone. Absolute property rights are enforced by the machine-god. You must choose a sector to integrate into. Where will you begin your tour?",
+        text: "Welcome to the <strong>LIBERTARIAN UTOPIA</strong>. Absolute property rights are enforced by the machine-god. You must choose a sector to integrate into. Where will you begin your tour?",
         choices: [
             { text: "Tour the Human-Only Sector", next: "tour_human" },
             { text: "Tour the Hybrid Sector", next: "tour_hybrid" },
@@ -28,7 +28,7 @@ const storyNodes = {
         ]
     },
     interview_human: {
-        text: "You speak to a scavenger with dirt under his nails. 'It is hard, but it is <strong>ours</strong>. We own our sweat. No OMNI code dictates our pulse.'",
+        text: "You speak to a scavenger with dirt under his nails. 'It is hard, but it is <strong>ours</strong>. We own our sweat.'",
         choices: [
             { text: "Commit to the Human Sector", next: "commit_human" },
             { text: "Tour a Different Sector", next: "start" }

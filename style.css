@@ -1,0 +1,80 @@
+body {
+    background-color: #000000;
+    color: #cccccc;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+#game-container {
+    max-width: 600px;
+    padding: 30px;
+    border: 1px solid #333333;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+    background: #0a0a0a;
+}
+
+/* Main Titles */
+h1 { 
+    color: #ff0000; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    text-shadow: 2px 2px #550000;
+}
+
+/* Subheadings */
+h2, h3 { 
+    color: #ffffff; 
+    letter-spacing: 1px;
+}
+
+/* Emphasis Text */
+strong, .gold-text { 
+    color: #ffd700; 
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+/* Buttons */
+button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ff0000;
+    padding: 12px 24px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+button:hover { 
+    background-color: #ff0000; 
+    color: #000000; 
+}
+
+/* Reward Section */
+#reward-section { 
+    display: none; 
+    margin-top: 25px; 
+    border-top: 1px dashed #ff0000; 
+    padding-top: 20px; 
+}
+.merch-code { 
+    color: #ffd700; 
+    font-weight: bold; 
+    font-size: 1.3em; 
+    letter-spacing: 2px;
+}
+.social-btn { 
+    border-color: #ffffff; 
+    color: #ffffff; 
+    margin-top: 15px;
+}
+.social-btn:hover { 
+    background-color: #ffffff; 
+    color: #000000; 
+}
